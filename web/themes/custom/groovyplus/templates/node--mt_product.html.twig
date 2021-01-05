@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Groovy+'s theme implementation to display a Product node.
+ */
+#}
+
+{% extends "node.html.twig" %}
+{% block content %}
+  {{ attach_library('groovyplus/node-product') }}
+  <div class="product-content two-columns">
+    <div class="row">
+
+{# edited: phoenixseo, frank pfabigan 15.12.2020: single row darstellung #}
+      <div class="col-12 col-10 ml-xl-auto mr-xl-auto">
+      <div class="page-title">{{ label }}</div>
+      {% if content.field_mt_prd_product_code|render or content.field_mt_prd_availability|render or content.field_mt_prd_price|render %}
+        <div class="row justify-content-start align-items-center mb-2">
+          {% if content.field_mt_prd_price|render %}
+            <div class="col-auto mr-auto">
+              {{ content.field_mt_prd_price }}
+            </div>
+          {% endif %}
+          {% if content.field_mt_prd_product_code|render %}
+            <div class="col-auto">
+              {{ content.field_mt_prd_product_code }}
+            </div>
+          {% endif %}
+          {% if content.field_mt_prd_availability|render %}
+            <div class="col-auto {{ node.field_mt_prd_availability.value }}">
+              {{ content.field_mt_prd_availability }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      {{ content.field_mt_prd_buy_link }}
+      {{ content.field_mt_prd_specifications }}
+      {{ content.field_mt_prd_delivery_options }}
+
+      {{ content|without('field_mt_prd_image', 'field_mt_prd_buy_link', 'field_mt_prd_price', 'field_mt_prd_product_code', 'field_mt_prd_availability', 'field_mt_prd_categories', 'field_mt_prd_subheader_body', 'field_mt_prd_subtitle', 'field_mt_prd_highlight', 'field_mt_prd_additional_features', 'field_mt_prd_comments', 'field_mt_prd_tags', 'field_mt_prd_specifications', 'field_mt_prd_delivery_options') }}
+      {% if not content.field_mt_prd_highlight|render and not content.field_mt_prd_additional_features|render %}
+        {{ content.field_mt_prd_tags }}
+        {{ content.field_mt_prd_comments }}
+      {% endif %}
+
+      </div>
+{# edit end. #}
+    </div>
+  </div>
+  {{ content.field_mt_prd_highlight }}
+  {{ content.field_mt_prd_additional_features }}
+  {% if content.field_mt_prd_highlight|render or content.field_mt_prd_additional_features|render %}
+    {{ content.field_mt_prd_tags }}
+    {{ content.field_mt_prd_comments }}
+  {% endif %}
+
+{% endblock %}

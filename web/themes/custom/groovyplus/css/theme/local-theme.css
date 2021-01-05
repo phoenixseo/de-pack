@@ -1,0 +1,75 @@
+/* card-extra:
+ * card-img-overlay besonders stylen
+ */
+.card-extra .card-title a {
+  background-color: hsl( 0deg 0% 100% / 75%);
+  color: black;
+  font-weight: bolder;
+  border: 0 none;
+}
+
+/* on card-hover: optische hervorhebung */
+.card:hover {
+  box-shadow: 0 .5rem 1rem rgb(195 24 41 / 50%)!important;
+  transition: box-shadow .6s ease-in;
+  transform: scale(1.05);
+}
+
+/* card font sizes */
+.card .card-title {
+  font-size: 18px;
+}
+.card .card-text {
+  font-size: 16px;
+}
+
+/* image-captions */
+.image-caption {
+  position: inherit;
+  background: var(--mt-color-tint);
+}
+.image-caption p {
+  padding: 7px 0px;
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: small;
+}
+
+/* popular tags view */
+.view-mt-popular-tags .views-row a:before {
+  content: '';
+}
+
+/* make breakpoints visible */
+:root {
+  --mobile-max: 767px;
+  --tablet-min: 768px;
+  --table-max: 991px;
+  --desktop-min: 992px;
+  --desktop-max: 1199px;
+  --wide-min: 1200px;
+}
+@media screen and (max-width: 767px) {
+  .breakpoint.mobile { color: red; }
+  .breakpoint.tablet { color: white; }
+  .breakpoint.desktop { color: white; }
+  .breakpoint.wide { color: white; }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .breakpoint.mobile { color: white; }
+  .breakpoint.tablet { color: red; }
+  .breakpoint.desktop { color: white; }
+  .breakpoint.wide { color: white; }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .breakpoint.mobile { color: white; }
+  .breakpoint.tablet { color: white; }
+  .breakpoint.desktop { color: red; }
+  .breakpoint.wide { color: white; }
+}
+@media screen and (min-width: 1200px) {
+  .breakpoint.mobile { color: white; }
+  .breakpoint.tablet { color: white; }
+  .breakpoint.desktop { color: white; }
+  .breakpoint.wide { color: red; }
+}
